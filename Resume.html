@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushal V | Resume</title>
+
+    <style>
+        /* Palette and sizing tokens keep the page's paper-and-ink look consistent. */
+        :root {
+            --paper: #f5f3ed;
+            --ink: #202a26;
+            --muted: #64716b;
+            --accent: #a64e32;
+            --rule: #d9d6cd;
+        }
+
+        /* A quiet warm background frames the resume like a printed page. */
+        body {
+            font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            margin: 0;
+            padding: 32px 0;
+            line-height: 1.65;
+        }
+
+        /* The narrow measure and generous whitespace make the content easy to scan. */
+        .container {
+            width: min(820px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 48px 56px;
+            background-color: #fffefa;
+            border: 1px solid var(--rule);
+        }
+
+        /* A left-aligned profile header gives the page an editorial, personal feel. */
+        .header {
+            display: grid;
+            grid-template-columns: 112px 1fr;
+            column-gap: 28px;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* The compact portrait adds identity without overpowering the resume. */
+        .profile-pic {
+            grid-column: 1;
+            grid-row: 1 / span 4;
+            width: 112px;
+            height: 132px;
+            object-fit: cover;
+            filter: saturate(0.78);
+        }
+
+        /* The name is the strongest type on the page and uses a restrained accent. */
+        h1 {
+            grid-column: 2;
+            margin: 0;
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+        }
+
+        /* The subtitle is secondary, with color rather than decoration for hierarchy. */
+        .subtitle {
+            grid-column: 2;
+            margin: 7px 0 0;
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* The contact line sits directly under the name for quick access. */
+        .header p:not(.subtitle) {
+            grid-column: 2;
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* Sections use a fixed label column to create a clean reading rhythm. */
+        section {
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
+            gap: 24px;
+            padding: 26px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        /* Section titles are small, uppercase labels instead of heavy boxed headings. */
+        h2 {
+            margin: 2px 0 0;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* Content stays on the page surface; spacing replaces generic card backgrounds. */
+        .card {
+            min-width: 0;
+        }
+
+        /* Education entries are separated by space, not repeated decorative panels. */
+        h3 {
+            margin: 0 0 2px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.08rem;
+            font-weight: 600;
+        }
+
+        /* Body copy and dates use a softer tone to keep key details prominent. */
+        .card p {
+            margin: 0 0 16px;
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        /* The final paragraph in a section has no trailing gap. */
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Links use the accent color and a visible underline on interaction. */
+        a {
+            color: var(--accent);
+            text-decoration-color: transparent;
+            text-underline-offset: 3px;
+            transition: text-decoration-color 160ms ease;
+        }
+
+        /* Hover and keyboard focus both make links easy to identify. */
+        a:hover,
+        a:focus-visible {
+            text-decoration-color: currentColor;
+        }
+
+        /* Skills form a compact two-column list rather than a row of generic badges. */
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 7px 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Small accent markers give list items structure without visual clutter. */
+        li {
+            position: relative;
+            padding-left: 14px;
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        /* The marker echoes the warm accent used for section labels and links. */
+        li::before {
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            content: "—";
+        }
+
+        /* The footer closes the page quietly, without competing with resume content. */
+        footer {
+            padding-top: 22px;
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        /* On small screens, stack section labels and content while preserving spacing. */
+        @media (max-width: 620px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                width: auto;
+                padding: 32px 24px;
+                border: 0;
+            }
+
+            .header {
+                grid-template-columns: 76px 1fr;
+                column-gap: 18px;
+            }
+
+            .profile-pic {
+                width: 76px;
+                height: 96px;
+            }
+
+            section {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* A single skills column avoids cramped text on very narrow screens. */
+        @media (max-width: 380px) {
+            ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- =========================
+             HEADER SECTION
+             Replace the image source,
+             name and contact details
+             ========================= -->
+        <div class="header">
+
+            <!-- CHANGE photo.jpg to your image file -->
+            <img src="./images/piv.jpeg" alt="Profile Photo" class="profile-pic">
+
+            <!-- CHANGE YOUR NAME -->
+            <h1>Kushal V</h1>
+
+            <!-- CHANGE THIS DESCRIPTION -->
+            <p class="subtitle">
+                First Year Engineering & BBA Student
+            </p>
+
+            <!-- CHANGE EMAIL, PHONE & LINKEDIN -->
+            <p>
+                Email: kushal0676@gmail.com |
+                Phone: +91 9900033818
+            </p>
+
+
+        </div>
+
+        <!-- =========================
+             ABOUT ME SECTION
+             Edit the paragraph below
+             ========================= -->
+        <section>
+            <h2>About Me</h2>
+
+            <div class="card">
+                <p>
+                    I am a first-year student pursuing both Engineering
+                    and BBA. I am interested in technology, business,
+                    problem solving, and learning new skills. I am
+                    currently building my academic and professional
+                    foundation through coursework, projects, and
+                    certifications.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================
+             EDUCATION SECTION
+             Update college/school names
+             ========================= -->
+        <section>
+            <h2>Education</h2>
+
+            <div class="card">
+
+                <!-- CHANGE DETAILS BELOW -->
+                <h3>Engineering Degree</h3>
+                <p>
+                    Alliance University<br>
+                    Year: 2026 - Present
+                </p>
+
+                <h3>BBA in DBE Degree</h3>
+                <p>
+                    Indian Institute of Management Bangalore<br>
+                    Year: 2026 - Present
+                </p>
+
+                <h3>Class 12</h3>
+                <p>
+                    Christ Academy Junior College<br>
+                    Year Completed: 2026
+                </p>
+
+                <h3>Class 10</h3>
+                <p>
+                    St. Francis De Sales Public School ICSE<br>
+                    Year Completed: 2024
+                </p>
+
+            </div>
+        </section>
+
+        <!-- =========================
+             WORK EXPERIENCE SECTION
+             Since you currently have no
+             work experience, leave as is
+             or update later
+             ========================= -->
+        <section>
+            <h2>Work Experience</h2>
+
+            <div class="card">
+                <p>
+                    Currently, I do not have professional work
+                    experience. I am focusing on academics,
+                    skill development, and personal projects.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================
+             SKILLS SECTION
+             Add/remove skills here
+             ========================= -->
+        <section>
+            <h2>Skills</h2>
+
+            <div class="card">
+                <ul>
+                    <li>Basic Excel</li>
+                    <li>Basic Java</li>
+                    <li>Basic Python</li>
+                    <li>Prompt Engineering</li>
+                    <li>Communication Skills</li>
+                    <li>Problem Solving</li>
+                    <li>Basic HTML & CSS</li>
+                    <li>Presentation Skills</li>
+                    <li>Team Collaboration</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- =========================
+             CERTIFICATES SECTION
+             Create separate pages/files
+             and link them here
+             ========================= -->
+        <section>
+            <h2>Certificates</h2>
+
+            <div class="card">
+
+                <!--
+                Replace the href values with
+                the actual file names or links.
+
+                Example:
+                href="10th-certificate.html"
+                href="12th-certificate.html"
+
+                OR
+
+                href="documents/10th.pdf"
+                -->
+
+                <ul>
+                    <li>
+                        <a href="./images/10thMarksSheet.pdf" target="_blank">
+                            View Class 10 Certificate
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="./images/12thMarksSheet.pdf">
+                            View Class 12 Certificate
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- =========================
+             PROJECTS SECTION
+             Add projects as you make them
+             ========================= -->
+        <section>
+            <h2>Projects</h2>
+
+            <div class="card">
+                <p>
+                    No projects added yet.
+                    Update this section as you
+                    complete academic or personal projects.
+                </p>
+            </div>
+        </section>
+
+        <!-- =========================
+             FOOTER
+             ========================= -->
+        <footer>
+            © Kushal V | Resume Website
+        </footer>
+
+    </div>
+
+</body>
+</html>
